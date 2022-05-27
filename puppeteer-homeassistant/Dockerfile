@@ -11,7 +11,7 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
-RUN useradd -o user -u 1000 -s /bin/bash && mkdir -p /opt/puppeteer/ && chown 1000:1000 /opt/puppeteer/
+RUN adduser -o user -u 1000 -s /bin/bash && mkdir -p /opt/puppeteer/ && chown 1000:1000 /opt/puppeteer/
 
 WORKDIR /opt/puppeteer/
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599

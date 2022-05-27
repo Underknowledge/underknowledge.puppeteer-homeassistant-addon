@@ -12,7 +12,7 @@ arch:
   - i386
 init: false
 map:
-  - CONFIG:rw
+  - config:rw
 options:
   message: "Hello world..."
   kindle_ip: "10.0.0.3"
