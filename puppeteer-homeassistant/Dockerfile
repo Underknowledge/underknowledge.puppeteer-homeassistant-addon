@@ -13,7 +13,18 @@ COPY rootfs /
 
 
 
-RUN cat /etc/passwd
+ENV USER=user
+ENV UID=1000
+
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "$(pwd)" \
+    --ingroup "$USER" \
+    --no-create-home \
+    --uid "$UID" \
+    "$USER" \
+    && chown 1000:1000 /opt/puppeteer/
 
 RUN adduser user -u 1000 -s /bin/bash && mkdir -p /opt/puppeteer/ && chown 1000:1000 /opt/puppeteer/
 
