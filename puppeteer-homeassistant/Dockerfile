@@ -46,6 +46,7 @@ RUN adduser \
     #   font-noto-emoji \
     #   wqy-zenhei \
 
+#      chromium \
 
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599
 # 2020.. were getting warmer https://blog.logrocket.com/how-to-set-up-a-headless-chrome-node-js-server-in-docker/
@@ -59,14 +60,16 @@ RUN set -x \
       && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \    
       && apk upgrade -U -a \
       && apk add --no-cache \
-      chromium \
       harfbuzz \
       nss \
       "freetype>2.8" \
       ttf-freefont \
       \
       # Add the packages
-      && apk add --no-cache imagemagick openssh-client sshpass netcat-openbsd nano curl tini make gcc g++ python3 git nodejs nodejs-npm yarn \
+      && apk add --no-cache \
+      imagemagick openssh-client sshpass netcat-openbsd \
+      && apk add --no-cache \
+      nano curl tini make gcc g++ python3 git nodejs nodejs-npm yarn \
       \
       && npm install puppeteer@14.1.1 \
       \
@@ -77,7 +80,11 @@ RUN set -x \
       && mkdir /var/cache/apk \
       && echo
     
-
+# ERROR: unable to select packages:
+#   so:libcjson.so.1 (no such package):
+#     required by: librist-0.2.6-r1[so:libcjson.so.1]
+#   so:libmbedcrypto.so.7 (no such package):
+#     required by: librist-0.2.6-r1[so:libmbedcrypto.so.7]
 
 
 USER user
