@@ -34,22 +34,33 @@ RUN set -x \
       && apk update \
       && apk upgrade \
       # replacing default repositories with edge ones
+      && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
       && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/repositories \
       && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-      && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+      && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \    
+      && apk upgrade -U -a \
+      && apk add \
+      libstdc++ \
+      chromium \
+      harfbuzz \
+      nss \
+      freetype \
+      ttf-freefont \
+      font-noto-emoji \
+      wqy-zenhei \
       \
       # Add the packages
-      && apk add --no-cache imagemagick openssh-client sshpass netcat nano curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ nss chromium \
+      && apk add --no-cache imagemagick openssh-client sshpass netcat-openbsd nano curl tini make gcc g++ python3 git nodejs nodejs-npm yarn \
       \
       && npm install puppeteer@14.1.1 \
       \
       # Do some cleanup
       && apk del --no-cache make gcc g++ python binutils-gold gnupg libstdc++ \
       && rm -rf /usr/include \
-      && rm -rf /var/cache/apk/* /root/.node-gyp /usr/share/man /tmp/* \
+      && rm -rf /var/cache/* /root/.node-gyp /usr/share/man /tmp/* \
+      && mkdir /var/cache/apk \
       && echo
     
-
 USER user
 
 
