@@ -48,6 +48,8 @@ RUN adduser \
 
 #      chromium \
 
+# https://pkgs.alpinelinux.org/contents?file=&path=&name=cjson&branch=edge&repo=main&arch=x86
+
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599
 # 2020.. were getting warmer https://blog.logrocket.com/how-to-set-up-a-headless-chrome-node-js-server-in-docker/
 RUN set -x \
@@ -55,6 +57,7 @@ RUN set -x \
       && apk upgrade \
       # replacing default repositories with edge ones
       && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+      && echo @edge "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
       && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/repositories \
       && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
       && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \    
