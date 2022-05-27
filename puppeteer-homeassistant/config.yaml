@@ -2,14 +2,14 @@
 name: Containerized Pupeteer setup
 version: "0.0.1"
 slug: puppeteer-homeassistant
-description: Example add-on
-url: "https://github.com/Underknowledge/underknowledge.puppeteer-homeassistant-addon/tree/main/example"
+description: puppeteer-homeassistant add-on
+url: "https://github.com/Underknowledge/underknowledge.puppeteer-homeassistant-addon/tree/main/puppeteer-homeassistant"
 arch:
-  - armhf
-  - armv7
-  - aarch64
+  # - armhf
+  # - armv7
+  # - aarch64
   - amd64
-  - i386
+  # - i386
 init: false
 map:
   - config:rw

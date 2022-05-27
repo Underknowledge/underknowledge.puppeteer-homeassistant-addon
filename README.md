@@ -13,13 +13,13 @@ Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 
 This repository contains the following add-ons
 
-### [underknowledge.puppeteer-homeassistant-addon](./example)
+### [underknowledge.puppeteer-homeassistant-addon](./puppeteer-homeassistant)
 
-![Supports aarch64 Architecture][aarch64-shield]
+<!-- ![Supports aarch64 Architecture][aarch64-shield] -->
 ![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
+<!-- ![Supports armhf Architecture][armhf-shield] -->
+<!-- ![Supports armv7 Architecture][armv7-shield] -->
+<!-- ![Supports i386 Architecture][i386-shield] -->
 
 _Containerized Pupeteer setup to bring an image of a Home Assistant dashboard to Kindle!._
 
