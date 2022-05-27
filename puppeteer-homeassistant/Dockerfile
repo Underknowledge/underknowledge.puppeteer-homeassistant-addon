@@ -46,12 +46,16 @@ RUN adduser \
     #   font-noto-emoji \
     #   wqy-zenhei \
 
-#      chromium \
+#
 
 # https://pkgs.alpinelinux.org/contents?file=&path=&name=cjson&branch=edge&repo=main&arch=x86
+# https://pkgs.alpinelinux.org/packages?name=chromium&branch=edge
 
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599
 # 2020.. were getting warmer https://blog.logrocket.com/how-to-set-up-a-headless-chrome-node-js-server-in-docker/
+
+# /opt/puppeteer/node_modules/puppeteer/.local-chromium/linux-938248
+
 RUN set -x \
       && apk update \
       && apk upgrade \
@@ -63,6 +67,7 @@ RUN set -x \
       && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \    
       && apk upgrade -U -a \
       && apk add --no-cache \
+      chromium \
       harfbuzz \
       nss \
       "freetype>2.8" \
