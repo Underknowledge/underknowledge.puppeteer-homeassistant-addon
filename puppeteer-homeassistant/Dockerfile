@@ -74,7 +74,7 @@ RUN set -x \
       && npm install puppeteer@14.1.1 \
       \
       # Do some cleanup
-      && apk del --no-cache make gcc g++ python binutils-gold gnupg libstdc++ \
+      && apk del --no-cache make gcc g++ python3 binutils-gold gnupg libstdc++ \
       && rm -rf /usr/include \
       && rm -rf /var/cache/* /root/.node-gyp /usr/share/man /tmp/* \
       && mkdir /var/cache/apk \
