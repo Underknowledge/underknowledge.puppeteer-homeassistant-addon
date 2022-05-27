@@ -29,7 +29,26 @@ RUN adduser \
     "$USER" \
     && chown 1000:1000 /opt/puppeteer/
 
+
+# Failed before with 
+# apk add libstdc++ chromium harfbuzz nss freetype ttf-freefont font-noto-emoji wqy-zenhei
+# ERROR: unable to select packages:
+#   so:libcjson.so.1 (no such package):
+#     required by: librist-0.2.6-r1[so:libcjson.so.1]
+#   so:libmbedcrypto.so.7 (no such package):
+#     required by: librist-0.2.6-r1[so:libmbedcrypto.so.7]
+    #   libstdc++ \
+    #   chromium \
+    #   harfbuzz \
+    #   nss \
+    #   freetype \
+    #   ttf-freefont \
+    #   font-noto-emoji \
+    #   wqy-zenhei \
+
+
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599
+# 2020.. were getting warmer https://blog.logrocket.com/how-to-set-up-a-headless-chrome-node-js-server-in-docker/
 RUN set -x \
       && apk update \
       && apk upgrade \
@@ -39,15 +58,12 @@ RUN set -x \
       && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
       && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \    
       && apk upgrade -U -a \
-      && apk add \
-      libstdc++ \
+      && apk add --no-cache \
       chromium \
       harfbuzz \
       nss \
-      freetype \
+      "freetype>2.8" \
       ttf-freefont \
-      font-noto-emoji \
-      wqy-zenhei \
       \
       # Add the packages
       && apk add --no-cache imagemagick openssh-client sshpass netcat-openbsd nano curl tini make gcc g++ python3 git nodejs nodejs-npm yarn \
@@ -59,8 +75,11 @@ RUN set -x \
       && rm -rf /usr/include \
       && rm -rf /var/cache/* /root/.node-gyp /usr/share/man /tmp/* \
       && mkdir /var/cache/apk \
-      && echo
+#       && echo
     
+
+
+
 USER user
 
 
