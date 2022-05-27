@@ -16,11 +16,12 @@ COPY rootfs /
 ENV USER=user
 ENV UID=1000
 
+WORKDIR /opt/puppeteer/
+
 RUN adduser \
     --disabled-password \
     --gecos "" \
     --home "$(pwd)" \
-    --ingroup "$USER" \
     --no-create-home \
     --uid "$UID" \
     "$USER" \
@@ -28,7 +29,7 @@ RUN adduser \
 
 RUN adduser user -u 1000 -s /bin/bash && mkdir -p /opt/puppeteer/ && chown 1000:1000 /opt/puppeteer/
 
-WORKDIR /opt/puppeteer/
+
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599
 RUN set -x \
       && apk update \
