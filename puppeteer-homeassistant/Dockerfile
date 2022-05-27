@@ -18,6 +18,8 @@ ENV UID=1000
 
 WORKDIR /opt/puppeteer/
 
+
+
 RUN adduser \
     --disabled-password \
     --gecos "" \
@@ -26,9 +28,6 @@ RUN adduser \
     --uid "$UID" \
     "$USER" \
     && chown 1000:1000 /opt/puppeteer/
-
-RUN adduser user -u 1000 -s /bin/bash && mkdir -p /opt/puppeteer/ && chown 1000:1000 /opt/puppeteer/
-
 
 # 2018.. what should go wrong https://github.com/puppeteer/puppeteer/issues/1793#issuecomment-437688599
 RUN set -x \
@@ -51,7 +50,7 @@ RUN set -x \
       && echo
     
 
-
 USER user
+
 
 ENTRYPOINT ["/etc/services.d/puppeteer/run"]
