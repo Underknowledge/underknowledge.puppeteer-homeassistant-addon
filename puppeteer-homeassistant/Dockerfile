@@ -71,15 +71,17 @@ RUN set -x \
       && apk add --no-cache \
       nano curl tini make gcc g++ python3 git nodejs nodejs-npm yarn \
       \
-      && npm install puppeteer@14.1.1 \
+      && npm install puppeteer@12.0.1 \
       \
       # Do some cleanup
-      && apk del --no-cache make gcc g++ python3 binutils-gold gnupg libstdc++ \
+      && apk del --no-cache make gcc g++ python3  \
       && rm -rf /usr/include \
       && rm -rf /var/cache/* /root/.node-gyp /usr/share/man /tmp/* \
       && mkdir /var/cache/apk \
       && echo
-    
+    # libstdc++  binutils-gold
+# puppeteer 14 is to new for alpines (current: {"node":"12.22.12","npm":"6.14.16"})
+
 # ERROR: unable to select packages:
 #   so:libcjson.so.1 (no such package):
 #     required by: librist-0.2.6-r1[so:libcjson.so.1]
