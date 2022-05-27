@@ -1,10 +1,11 @@
 FROM zenika/alpine-chrome:with-node
 
 
-
+user root
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
 RUN \
+    whoami && \
     apk add --no-cache \
       curl imagemagick openssh-client sshpass netcat-openbsd \
     && curl -sSLf -o /usr/bin/tempio \
