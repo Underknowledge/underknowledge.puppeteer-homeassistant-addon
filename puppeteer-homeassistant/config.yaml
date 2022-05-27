@@ -7,7 +7,7 @@ url: "https://github.com/Underknowledge/underknowledge.puppeteer-homeassistant-a
 arch:
   # - armhf
   # - armv7
-  # - aarch64
+  - aarch64
   - amd64
   # - i386
 init: false
