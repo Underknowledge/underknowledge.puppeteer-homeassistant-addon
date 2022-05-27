@@ -75,7 +75,7 @@ RUN set -x \
       && rm -rf /usr/include \
       && rm -rf /var/cache/* /root/.node-gyp /usr/share/man /tmp/* \
       && mkdir /var/cache/apk \
-#       && echo
+      && echo
     
 
 
