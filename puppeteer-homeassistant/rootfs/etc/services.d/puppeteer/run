@@ -5,6 +5,7 @@
 # ==============================================================================
 
 # Add your code here
+# my code? 
 
 # Declare variables
 declare message
@@ -12,8 +13,9 @@ declare message
 ## Get the 'message' key from the user config options.
 message=$(bashio::config 'message')
 
+
 ## Print the message the user supplied, defaults to "Hello World..."
 bashio::log.info "${message:="Hello World..."}"
 
 ## Run your program
-exec /usr/bin/my_program
+exec /opt/pupeteer/entrypoint.sh

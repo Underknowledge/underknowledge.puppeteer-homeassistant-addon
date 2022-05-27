@@ -1,6 +1,6 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
-## 1.2.0
+<!-- ## 1.2.0
 
 - Add an apparmor profile
 - Update to 3.15 base image with s6 v3
@@ -8,8 +8,11 @@
 
 ## 1.1.0
 
-- Updates
+- Updates -->
 
-## 1.0.0
+<!-- ## 1.0.0
 
-- Initial release
+- Initial release -->
+
+## 0.0.0
+wip

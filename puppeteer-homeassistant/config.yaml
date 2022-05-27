@@ -1,0 +1,32 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Containerized Pupeteer setup
+version: "0.0.1"
+slug: puppeteer-homeassistant
+description: Example add-on
+url: "https://github.com/Underknowledge/underknowledge.puppeteer-homeassistant-addon/tree/main/example"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+map:
+  - CONFIG:rw
+options:
+  message: "Hello world..."
+  kindle_ip: "10.0.0.3"
+  kindle_password: "CleartextPasswordsAreTerrible!!!"
+  homeassistant_login: kindle
+  homeassistant_password: kindle
+  homeassistant_url: 10.0.0.3
+  horizontalpx: "758"
+  verticalpx: "1024"
+  zoomfc: "1"
+schema:
+  message: "str?"
+#image: "ghcr.io/Underknowledge/{arch}-puppeteer-homeassistant"
+
+
+# SLEEP=1m
+# READING_DURATION=2h

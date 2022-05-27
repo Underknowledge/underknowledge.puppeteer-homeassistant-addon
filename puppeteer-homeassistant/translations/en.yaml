@@ -1,0 +1,29 @@
+configuration:
+  message:
+    name: Message
+    description: The message that will be printed to the log when starting this example add-on.
+  kindle_ip:
+    name: KindleIP
+    description: The IP of your kindle device.
+  kindle_password:
+    name: KindlePassword
+    description: The password to your Kindle.
+  homeassistant_login:
+    name: HomeassistantLogin
+    description: The Login you want to use for logging into home asssistant.
+  homeassistant_password:
+    name: HomeassistantPassword
+    description: The Password you want to use for logging into home asssistant.
+  homeassistant_url:
+    name: HomeassistantURL
+    description: The URL to the dashboad you like to screenshot
+# to be implemented
+  horizontalpx:
+    name: HorizontalPx
+    description: Horizontal Size you want for the screenshot.
+  verticalpx:
+    name: VerticcalPx
+    description: Verticcal Size you want for the screenshot.
+  zoomfc:
+    name: ZoomFactor
+    description: Zoom Factor you want to use for the screenshot.
