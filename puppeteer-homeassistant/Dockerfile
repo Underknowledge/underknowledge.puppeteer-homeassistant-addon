@@ -15,17 +15,17 @@ COPY rootfs /
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN apt-get update && apt-get install -y curl gnupg \
-    && apt-get install -y nodejs npm nano imagemagick openssh-client sshpass netcat-openbsd \
-    \
-    && ARCH="$(echo $BUILD_FROM | grep -o 'amd64\|aarch64')" \
-    && if [ "${BUILD_ARCH}" = "aarch64" ]; then export ARCH="aarch64"; fi \
-    && if [ "${BUILD_ARCH}" = "amd64" ]; then export ARCH="amd64"; fi \
-    && echo "Running $ARCH build" \
+RUN export ARCH="$(echo $BUILD_FROM | grep -o 'amd64\|aarch64')" \
+    &&  echo "SEARCHX set $ARCH Build from is set to $BUILD_FROM"\ 
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "SEARCHX FOUND AARCH64" && export ARCH="aarch64"; fi \
+    && if [ "${BUILD_ARCH}" = "amd64" ]; then echo "SEARCHX FOUND AMD64" && export ARCH="amd64"; fi \
+    && echo "SEARCHX Running $ARCH build" \
     \
   && curl --location --silent https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && sh -c 'echo "deb [arch=$ARCH] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list' \
   && apt-get update \
+  && apt-get install -y nodejs npm nano imagemagick openssh-client sshpass netcat-openbsd \
+    \
   && apt-get install google-chrome-stable -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
