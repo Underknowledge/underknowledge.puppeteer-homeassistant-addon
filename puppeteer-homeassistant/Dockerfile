@@ -15,8 +15,8 @@ COPY rootfs /
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "FOUND ARCH AARCH64" && export BROWSER="google-chrome-stable" && export ARCH="aarch64"; fi \
-    && if [ "${BUILD_ARCH}" = "amd64" ]; then echo "FOUND ARCH AMD64" && export BROWSER="chromium-browser" && export ARCH="amd64"; fi \
+RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "FOUND ARCH AARCH64" && export BROWSER="chromium-browser" && export ARCH="aarch64"; fi \
+    && if [ "${BUILD_ARCH}" = "amd64" ]; then echo "FOUND ARCH AMD64" && export BROWSER="google-chrome-stable" && export ARCH="amd64"; fi \
     && echo "Start building $ARCH build" \
     \
   && apt-get update \
