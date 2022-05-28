@@ -22,7 +22,7 @@ RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "FOUND ARCH AARCH64" && export
   && apt-get update \
   && apt-get install -y gnupg \
   && curl --location --silent https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-  && if [ "${BUILD_ARCH}" = "amd64" ]; sh -c 'echo "deb [arch=$ARCH] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'; fi \ \
+  && if [ "${BUILD_ARCH}" = "amd64" ]; then sh -c 'echo "deb [arch=$ARCH] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'; fi \ \
   && apt-get update \
   && apt-get install -y nodejs npm nano imagemagick openssh-client sshpass netcat-openbsd \
     \
