@@ -5,14 +5,12 @@ slug: puppeteer-homeassistant
 description: puppeteer-homeassistant add-on
 url: "https://github.com/Underknowledge/underknowledge.puppeteer-homeassistant-addon/tree/main/puppeteer-homeassistant"
 arch:
-  # - armhf
-  # - armv7
   - aarch64
   - amd64
-  # - i386
 init: false
 map:
   - config:rw
+  - ssl # maybe ass an deploy key? 
 options:
   message: "Hello world..."
   kindle_ip: "10.0.0.3"
