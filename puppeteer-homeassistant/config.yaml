@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Containerized Pupeteer setup
-version: "0.0.1"
+version: "0.0.2"
 slug: puppeteer-homeassistant
 description: puppeteer-homeassistant add-on
 url: "https://github.com/Underknowledge/underknowledge.puppeteer-homeassistant-addon/tree/main/puppeteer-homeassistant"
@@ -22,7 +22,16 @@ options:
   verticalpx: "1024"
   zoomfc: "1"
 schema:
-  message: "str?"
+  message: "str"
+  kindle_ip: "str"
+  kindle_password: "str"
+  homeassistant_login: "str"
+  homeassistant_password: "str"
+  homeassistant_url: "str"
+# to be implemented 
+  # horizontalpx: "str"
+  # verticalpx: "str"
+  # zoomfc: "str"
 #image: "ghcr.io/Underknowledge/{arch}-puppeteer-homeassistant"
 
 
