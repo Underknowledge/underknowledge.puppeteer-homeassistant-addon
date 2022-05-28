@@ -10,14 +10,14 @@ arch:
 init: false
 map:
   - config:rw
-  - ssl # maybe ass an deploy key? 
+  - ssl # maybe as an deploy key? 
 options:
   message: "Hello world..."
   kindle_ip: "10.0.0.3"
   kindle_password: "CleartextPasswordsAreTerrible!!!"
   homeassistant_login: kindle
   homeassistant_password: kindle
-  homeassistant_url: 10.0.0.3
+  homeassistant_url: http://10.0.0.2:8123/vr-welcome/kindle?kiosk
   horizontalpx: "758"
   verticalpx: "1024"
   zoomfc: "1"
@@ -29,9 +29,9 @@ schema:
   homeassistant_password: "str"
   homeassistant_url: "str"
 # to be implemented 
-  # horizontalpx: "str"
-  # verticalpx: "str"
-  # zoomfc: "str"
+  horizontalpx: "str"
+  verticalpx: "str"
+  zoomfc: "str"
 #image: "ghcr.io/Underknowledge/{arch}-puppeteer-homeassistant"
 
 

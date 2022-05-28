@@ -29,10 +29,10 @@ RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "FOUND ARCH AARCH64" && export
   && apt-get install $BROWSER -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
-
 WORKDIR /usr/src/app
+
 RUN npm install
 
 # ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
-ENTRYPOINT ["/etc/services.d/puppeteer/run"]
+# ENTRYPOINT ["/etc/services.d/puppeteer/run"]
