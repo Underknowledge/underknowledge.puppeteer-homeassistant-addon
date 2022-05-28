@@ -33,5 +33,6 @@ RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "FOUND ARCH AARCH64" && export
 WORKDIR /usr/src/app
 RUN npm install
 
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+# ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
+ENTRYPOINT ["/etc/services.d/puppeteer/run"]
