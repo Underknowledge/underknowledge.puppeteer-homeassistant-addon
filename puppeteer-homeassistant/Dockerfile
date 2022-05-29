@@ -33,7 +33,6 @@ RUN cd /usr/src/app \
     && npm install
 
 RUN echo "user setup" \
-  && groupadd -r user \
   && useradd --non-unique -rm -d /home/user -s /bin/bash  -u 1000 user \
   && chown -R user:user /usr/src/app
 
