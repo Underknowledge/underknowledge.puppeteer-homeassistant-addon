@@ -18,9 +18,9 @@ configuration:
     name: HomeassistantURL
     description: The URL to the dashboad you like to screenshot
 # to be implemented
-  horizontalpx:
+  desiredWidth:
     name: HorizontalPx
-    description: Horizontal Size you want for the screenshot.
+    description: Horizontal Size in px you want for the screenshot.
   verticalpx:
     name: VerticcalPx
     description: Verticcal Size you want for the screenshot.

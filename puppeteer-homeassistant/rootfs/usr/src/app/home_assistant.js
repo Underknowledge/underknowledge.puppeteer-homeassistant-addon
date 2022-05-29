@@ -46,15 +46,10 @@ const browser = process.env.browser || "/usr/bin/google-chrome";
   // await page.setViewport({ width: 1920, height: 600 });
 
 
-  
-  // const desiredWidth = process.env.desiredWidth || "758";
-  // const desiredHeight = process.env.desiredHeight || "1024";
-  // const ScaleFactor = process.env.ScaleFactor || "1.35";
 
-
-  const desiredWidth = 758;
-  const desiredHeight = 1024;
-  const ScaleFactor = 1.35;
+  const desiredWidth = process.env.desiredWidth || 758;
+  const desiredHeight = process.env.desiredHeight || 1024;
+  const ScaleFactor = process.env.ScaleFactor || 1.35;
 
   await page.setViewport({ width: parseInt(desiredWidth / ScaleFactor), 
                            height: parseInt(desiredHeight / ScaleFactor), 

@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+cd ${SCRIPTPATH}
+echo "DEBUG!!!!!!!!"
+stat ${SCRIPTPATH}
+
+
+bashio::log.info "Test SCRIPT: $homeassistant_url"
+
+echo "DEBUG!!!!!!!!"
+
+
+
 KINDLE_IP="${KINDLE_IP:=10.0.3.192}" 
 KINDLE_PASSWORD="${KINDLE_PASSWORD:=kindle}" 
 HOMEASSISTANT_URL="${HOMEASSISTANT_URL:=http://10.0.0.27:8123/vr-welcome/kindle?kiosk}" 
@@ -6,6 +18,8 @@ HOMEASSISTANT_URL="${HOMEASSISTANT_URL:=http://10.0.0.27:8123/vr-welcome/kindle?
 export login_page="${HOMEASSISTANT_URL}"
 export login_username="${HOMEASSISTANT_LOGIN_USER:=kindle}" 
 export login_password="${HOMEASSISTANT_LOGIN_PASS:=kindle}" 
+
+
 
 if nc -z -w 1 ${KINDLE_IP} 22 ; then
   # Decide if we want to sleep a little

@@ -10,8 +10,35 @@
 # Declare variables
 declare message
 
+
+bashio::log.info "Test before: $homeassistant_url"
+
+declare message
+declare kindle_ip
+declare kindle_password
+declare homeassistant_login
+declare homeassistant_password
+declare homeassistant_url
+declare desiredWidth
+declare desiredHeight
+declare ScaleFactor
+
+
+bashio::log.info "Test declare: $homeassistant_url"
+
 ## Get the 'message' key from the user config options.
 message=$(bashio::config 'message')
+kindle_ip=$(bashio::config 'kindle_ip')
+kindle_password=$(bashio::config 'kindle_password')
+homeassistant_login=$(bashio::config 'homeassistant_login')
+homeassistant_password=$(bashio::config 'homeassistant_password')
+homeassistant_url=$(bashio::config 'homeassistant_url')
+desiredWidth=$(bashio::config 'desiredWidth')
+desiredHeight=$(bashio::config 'desiredHeight')
+ScaleFactor=$(bashio::config 'ScaleFactor')
+
+
+bashio::log.info "Test set: $homeassistant_url"
 
 
 ## Print the message the user supplied, defaults to "Hello World..."
