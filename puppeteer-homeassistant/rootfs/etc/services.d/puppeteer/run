@@ -11,7 +11,7 @@
 declare message
 
 
-bashio::log.info "Test before: $homeassistant_url"
+bashio::log.info "Test before: $homeassistant_url" || true
 
 declare message
 declare kindle_ip
@@ -24,7 +24,7 @@ declare desiredHeight
 declare ScaleFactor
 
 
-bashio::log.info "Test declare: $homeassistant_url"
+bashio::log.info "Test declare: $homeassistant_url" || true
 
 ## Get the 'message' key from the user config options.
 message=$(bashio::config 'message')
@@ -38,7 +38,7 @@ desiredHeight=$(bashio::config 'desiredHeight')
 ScaleFactor=$(bashio::config 'ScaleFactor')
 
 
-bashio::log.info "Test set: $homeassistant_url"
+bashio::log.info "Test set: $homeassistant_url" || true
 
 
 ## Print the message the user supplied, defaults to "Hello World..."

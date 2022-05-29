@@ -21,9 +21,9 @@ configuration:
   desiredWidth:
     name: HorizontalPx
     description: Horizontal Size in px you want for the screenshot.
-  verticalpx:
-    name: VerticcalPx
+  desiredHeight:
+    name: desiredHeight
     description: Verticcal Size you want for the screenshot.
-  zoomfc:
+  ScaleFactor:
     name: ZoomFactor
     description: Zoom Factor you want to use for the screenshot.
