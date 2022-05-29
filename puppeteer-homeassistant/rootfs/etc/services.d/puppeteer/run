@@ -11,8 +11,6 @@
 declare message
 
 
-bashio::log.info "Test before: $homeassistant_url" || true
-
 declare message
 declare kindle_ip
 declare kindle_password
