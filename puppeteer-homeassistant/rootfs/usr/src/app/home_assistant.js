@@ -16,12 +16,14 @@ function sleep(ms) {
 // /usr/bin/google-chrome /usr/bin/chromium-browser
 
 
-const browser = process.env.browser || '"/usr/bin/google-chrome"';
-console.log('DEBUG Browser:', browser);
+
+// looks good/as expected
 
 (async () => {
+  const browserbin = process.env.browser || '"/usr/bin/google-chrome"';
+  console.log('DEBUG Browser:', browserbin);
   const browser = await puppeteer.launch({
-  executablePath: browser,
+  executablePath: browserbin,
   headless: true,
   args: ['--no-sandbox', "--disabled-setupid-sandbox"], 
     // defaultViewport:{width:1366,height:768},
