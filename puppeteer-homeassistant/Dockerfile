@@ -34,7 +34,7 @@ RUN cd /usr/src/app \
 
 RUN echo "user setup" \
   && groupadd -r user \
-  && adduser -r -g user user \
+  && useradd --non-unique -rm -d /home/user -s /bin/bash  -u 1000 user
   && chown -R user:user /usr/src/app
 
 USER user
