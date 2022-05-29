@@ -36,7 +36,7 @@ RUN echo "user setup" \
   && useradd --non-unique -rm -d /home/user -s /bin/bash  -u 1000 user \
   && chown -R user:user /usr/src/app
 
-USER user
+# USER user
 
 # WORKDIR /usr/src/app
 # RUN npm install

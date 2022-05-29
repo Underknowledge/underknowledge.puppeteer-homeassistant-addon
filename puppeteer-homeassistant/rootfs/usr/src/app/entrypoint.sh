@@ -12,6 +12,7 @@ fi
 
 while true;
 do
-    ${SCRIPTPATH}/homeassistant.sh
+    su user -c "PUPPETEER_EXECUTABLE_PATH=$PUPPETEER_EXECUTABLE_PATH ${SCRIPTPATH}/homeassistant.sh"
+    # ${SCRIPTPATH}/homeassistant.sh
     sleep ${SLEEP:=60} || sleep 300
 done
