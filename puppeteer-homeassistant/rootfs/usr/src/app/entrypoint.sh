@@ -3,11 +3,11 @@ env || true
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 if [ -f /usr/bin/google-chrome ]; then
-    export browser="/usr/bin/google-chrome"
+    export PUPPETEER_EXECUTABLE_PATH="/usr/bin/google-chrome"
 elif [ -f /usr/bin/chromium-browser ]; then
-    export browser="/usr/bin/chromium-browser"
+    export PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium-browser"
 elif [ -f /usr/bin/firefox ]; then
-    export browser="/usr/bin/firefox"
+    export PUPPETEER_EXECUTABLE_PATH="/usr/bin/firefox"
 fi
 
 while true;
