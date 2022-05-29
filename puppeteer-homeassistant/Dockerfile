@@ -32,6 +32,12 @@ RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then echo "FOUND ARCH AARCH64" && export
 RUN cd /usr/src/app \
     && npm install
 
+RUN echo "user setup" \
+  && groupadd -r user \
+  && adduser -r -g user user \
+  && chown -R user:user /usr/src/app
+
+USER user
 
 # WORKDIR /usr/src/app
 # RUN npm install
