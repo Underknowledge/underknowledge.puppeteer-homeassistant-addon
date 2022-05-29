@@ -18,10 +18,9 @@ function sleep(ms) {
 
 // PUPPETEER_EXECUTABLE_PATH
 // looks good/as expected
-
+  console.log('DEBUG Browser:', process.env.PUPPETEER_EXECUTABLE_PATH);
 (async () => {
   // const browserbin = process.env.browser || '"/usr/bin/google-chrome"';
-  // console.log('DEBUG Browser:', browserbin);
   const browser = await puppeteer.launch({
   headless: true,
   args: ['--no-sandbox', "--disabled-setupid-sandbox"], 

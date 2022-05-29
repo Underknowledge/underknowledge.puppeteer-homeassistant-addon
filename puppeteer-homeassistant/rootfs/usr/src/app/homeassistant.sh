@@ -19,7 +19,15 @@ export login_password="${HOMEASSISTANT_LOGIN_PASS:=kindle}"
 
 
 if nc -z -w 1 ${KINDLE_IP} 22 ; then
-  export PUPPETEER_EXECUTABLE_PATH=$PUPPETEER_EXECUTABLE_PATH
+
+  if [ -f /usr/bin/google-chrome ]; then
+      export PUPPETEER_EXECUTABLE_PATH="/usr/bin/google-chrome"
+  elif [ -f /usr/bin/chromium-browser ]; then
+      export PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium-browser"
+  elif [ -f /usr/bin/firefox ]; then
+      export PUPPETEER_EXECUTABLE_PATH="/usr/bin/firefox"
+  fi
+
   # Decide if we want to sleep a little
   brightness=$(sshpass -p "${KINDLE_PASSWORD}" ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 'bash -c "cat /sys/devices/system/fl_tps6116x/fl_tps6116x0/fl_intensity"' 2>/dev/null | grep -o -e '[0-9]' |  tr -d "\n")
   if [[ "$brightness" -gt 240 ]]; then
@@ -27,7 +35,10 @@ if nc -z -w 1 ${KINDLE_IP} 22 ; then
       sleep ${READING_DURATION} || sleep 7200
   fi
   # Run pupeteer
-  node home_assistant.js
+  # idk if su carry's over the env
+  su user -c "PUPPETEER_EXECUTABLE_PATH=$PUPPETEER_EXECUTABLE_PATH node ${SCRIPTPATH} home_assistant.js"
+  # node home_assistant.js
+
   # Convert to a nice grayscale, while theoreticaly the kindle could work this out byhimself, it looks ugly
   convert home_assistant.png -depth 4 -colorspace gray -define png:color-type=0 -define png:bit-depth=8 home_assistant_8bit.png
 
