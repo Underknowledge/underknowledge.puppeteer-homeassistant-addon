@@ -3,10 +3,7 @@ SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 cd ${SCRIPTPATH}
 echo "DEBUG!!!!!!!!"
 stat ${SCRIPTPATH}
-
-
-bashio::log.info "Test SCRIPT: $homeassistant_url"
-
+whoami
 echo "DEBUG!!!!!!!!"
 
 
@@ -42,10 +39,11 @@ if nc -z -w 1 ${KINDLE_IP} 22 ; then
     # echo "$(date +"%M") is not divisible by 10, No screen clear"
     true
   fi
-  # Copy the picture
-  sshpass -p "${KINDLE_PASSWORD}" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no home_assistant_8bit.png root@${KINDLE_IP}:/mnt/us/documents/ && echo copyed || echo "issue copying to kindle"
-  # Set the picture 
-  sshpass -p "${KINDLE_PASSWORD}" ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${KINDLE_IP} 'eips -g /mnt/us/documents/home_assistant_8bit.png' > /dev/null 2>&1
+  echo "Copy the picture"
+
+  sshpass -p "${KINDLE_PASSWORD}" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no home_assistant_8bit.png root@${KINDLE_IP}:/mnt/us/documents/ && echo copyed || echo "issue copying to kindle" ; true
+  echo "Set the picture" 
+  sshpass -p "${KINDLE_PASSWORD}" ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${KINDLE_IP} 'eips -g /mnt/us/documents/home_assistant_8bit.png' > /dev/null 2>&1  || echo "issue setting kindle" ; true
 else
   echo "Kindle not connected to the Network, or it has now another IP"
   exit 0

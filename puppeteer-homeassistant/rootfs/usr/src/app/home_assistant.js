@@ -16,7 +16,7 @@ function sleep(ms) {
 // /usr/bin/google-chrome /usr/bin/chromium-browser
 
 
-const browser = process.env.browser || "/usr/bin/google-chrome";
+const browser = process.env.browser || '"/usr/bin/google-chrome"';
 console.log('DEBUG Browser:', browser);
 
 (async () => {
